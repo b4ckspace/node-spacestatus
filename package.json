@@ -10,12 +10,14 @@
   "license": "MIT",
   "dependencies": {
     "async": "^2.6.0",
+    "configurations": "^3.0.0",
     "ip": "^1.1.5",
     "moment": "^2.20.1",
     "mqtt": "^2.15.0",
     "ms": "^2.1.1",
     "mysql": "^2.15.0",
     "node-nmap": "^4.0.0",
-    "node-unifi": "^1.2.2"
+    "node-unifi": "^1.2.2",
+    "yargs": "^10.0.3"
   }
 }

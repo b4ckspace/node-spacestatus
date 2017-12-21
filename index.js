@@ -1,14 +1,20 @@
+'use strict';
 const async = require('async');
 const mqtt = require('mqtt');
 const ms = require('ms');
+
+const argv = require('yargs')
+    .usage('Usage: $0 --config config')
+    .argv;
 
 const Unifi = require('./lib/Collectors/Unifi');
 const Nmap = require('./lib/Collectors/Nmap');
 const CollectorRunner = require('./lib/CollectorRunner');
 const MySQL = require('./lib/Database/MySQL');
 const AliveHosts = require('./lib/Database/AliveHosts');
+const configurations = require('./lib/configurations');
 
-const config = require('./config/production');
+const config = configurations.getConfig(argv.config);
 
 const mqttClient = mqtt.connect('mqtt://' + config.mqtt.hostname);
 const mysql = new MySQL(config.mysql);

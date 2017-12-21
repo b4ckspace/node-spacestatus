@@ -3,12 +3,21 @@ const ms = require('ms');
 module.exports = {
 
     intervalMs: ms('5m'),
+    lookbackIntervalMs: ms('15m'),
 
     mqtt: {
         hostname: 'mqtt.core.bckspc.de',
+
+        options: {
+            qos: 1,
+            retain: true
+        },
+
         topics: {
             spaceStatus: 'sensor/space/status',
-            memberCount: 'sensor/space/member/count'
+            memberPresent: 'sensor/space/member/present',
+            memberNames: 'sensor/space/member/names',
+            deviceCount: 'sensor/space/member/deviceCount'
         }
     },
 

@@ -1,6 +1,7 @@
 # node-spacestatus
 
-node.js script used to determine present members using different "collectors" 
+node.js script used to determine present members using different "collectors".
+The result is then de-duplicated, inserted into the database and queried for present members.
 
 ## collectors
 

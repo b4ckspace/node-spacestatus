@@ -34,7 +34,8 @@ module.exports = {
         username: '',
         password: '',
         site: 'default',
-        network: '10.1.20.0/24'
+        network: '10.1.20.0/24',
+        timeoutMs: ms('20s')
     },
 
     nmap: {

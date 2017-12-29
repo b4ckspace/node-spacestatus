@@ -75,9 +75,13 @@ function update() {
                 lastMemberNames = memberNames;
 
                 return callback(null);
+            },
+
+            (callback) => {
+                aliveHosts.cleanup(config.cleanupIntervalMs, callback);
             }
         ], (error) => {
-            console.log("Finished cycle");
+            console.log("Finished cycle", error);
             setTimeout(update, config.intervalMs);
         });
 }

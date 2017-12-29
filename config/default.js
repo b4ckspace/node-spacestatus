@@ -4,6 +4,7 @@ module.exports = {
 
     intervalMs: ms('5m'),
     lookbackIntervalMs: ms('15m'),
+    cleanupIntervalMs: ms('14d'),
 
     mqtt: {
         hostname: 'mqtt.core.bckspc.de',

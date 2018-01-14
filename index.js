@@ -7,6 +7,8 @@ const argv = require('yargs')
     .usage('Usage: $0 --config config')
     .argv;
 
+const ip = require('ip');
+const logger = require('./lib/logger');
 const Unifi = require('./lib/Collectors/Unifi');
 const Nmap = require('./lib/Collectors/Nmap');
 const CollectorRunner = require('./lib/CollectorRunner');
@@ -36,6 +38,10 @@ function update() {
             (callback) => collector.update(callback),
 
             (hosts, callback) => {
+
+                if (config.ip) {
+                    hosts = hosts.filter(host => (ip.toLong(host.ip) >= config.ip.from && ip.toLong(host.ip) <= config.ip.to));
+                }
 
                 if (lastDeviceCount != hosts.length) {
                     mqttClient.publish(config.mqtt.topics.deviceCount, '' + hosts.length, config.mqtt.options);

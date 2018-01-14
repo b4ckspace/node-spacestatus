@@ -1,3 +1,4 @@
+const ip = require('ip');
 const ms = require('ms');
 
 module.exports = {
@@ -5,6 +6,12 @@ module.exports = {
     intervalMs: ms('5m'),
     lookbackIntervalMs: ms('15m'),
     cleanupIntervalMs: ms('14d'),
+
+    // Filter ip after collecting
+    ip: {
+        from: ip.toLong('10.1.20.100'),
+        to: ip.toLong('10.1.20.255'),
+    },
 
     mqtt: {
         hostname: 'mqtt.core.bckspc.de',
@@ -40,6 +47,6 @@ module.exports = {
     },
 
     nmap: {
-        network: '10.1.20.0/24'
+        network: '10.1.20.100-255'
     }
 };

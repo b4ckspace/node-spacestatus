@@ -35,6 +35,7 @@ function update() {
 
     async
         .waterfall([
+
             (callback) => collector.update(callback),
 
             (hosts, callback) => {
@@ -85,9 +86,23 @@ function update() {
 
             (callback) => {
                 aliveHosts.cleanup(config.cleanupIntervalMs, callback);
+                return callback(null);
             }
         ], (error) => {
-            console.log("Finished cycle", error);
+
+            if (error) {
+                logger.error({
+                    module: 'main',
+                    event: 'finished',
+                    error: error
+                });
+            } else {
+                logger.info({
+                    module: 'main',
+                    event: 'finished'
+                });
+            }
+
             setTimeout(update, config.intervalMs);
         });
 }

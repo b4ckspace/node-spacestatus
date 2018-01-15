@@ -27,9 +27,9 @@ const collector = new CollectorRunner();
 collector.add(new Unifi(config.unifi));
 collector.add(new Nmap(config.nmap));
 
-let lastDeviceCount = 0;
-let lastMemberCount = 0;
-let lastMemberNames = '';
+let lastDeviceCount = false;
+let lastMemberCount = false;
+let lastMemberNames = false;
 
 function update() {
 

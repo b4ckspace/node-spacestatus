@@ -44,7 +44,7 @@ function update() {
                     hosts = hosts.filter(host => (ip.toLong(host.ip) >= config.ip.from && ip.toLong(host.ip) <= config.ip.to));
                 }
 
-                if (lastDeviceCount != hosts.length) {
+                if (lastDeviceCount !== hosts.length) {
                     mqttClient.publish(config.mqtt.topics.deviceCount, '' + hosts.length, config.mqtt.options);
                 }
 
@@ -64,16 +64,16 @@ function update() {
                     return member.nickname;
                 }).join(', ');
 
-                if (lastMemberNames != memberNames) {
+                if (lastMemberNames !== memberNames) {
                     mqttClient.publish(config.mqtt.topics.memberNames, memberNames, config.mqtt.options);
                 }
 
-                if (lastMemberCount != members.length) {
+                if (lastMemberCount !== members.length) {
                     mqttClient.publish(config.mqtt.topics.memberPresent, '' + members.length, config.mqtt.options);
 
-                    if (members.length > 0 && lastMemberCount == 0) {
+                    if (members.length > 0 && lastMemberCount === 0) {
                         mqttClient.publish(config.mqtt.topics.spaceStatus, 'open', config.mqtt.options);
-                    } else if (members.length == 0 && lastMemberCount > 0) {
+                    } else if (members.length === 0 && lastMemberCount > 0) {
                         mqttClient.publish(config.mqtt.topics.spaceStatus, 'closed', config.mqtt.options);
                     }
                 }

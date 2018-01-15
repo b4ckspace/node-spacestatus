@@ -78,7 +78,7 @@ function update() {
                     }
                 }
 
-                lastMemberCount = 0;
+                lastMemberCount = members.length;
                 lastMemberNames = memberNames;
 
                 return callback(null);

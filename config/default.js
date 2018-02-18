@@ -46,7 +46,8 @@ module.exports = {
         timeoutMs: ms('20s')
     },
 
-    nmap: {
-        network: '10.1.20.100-255'
+    fping: {
+        path: '/usr/bin/fping',
+        network: '10.1.20.0/24'
     }
 };

@@ -10,7 +10,7 @@ const argv = require('yargs')
 const ip = require('ip');
 const logger = require('./lib/logger');
 const Unifi = require('./lib/Collectors/Unifi');
-const Nmap = require('./lib/Collectors/Nmap');
+const Fping = require('./lib/Collectors/Fping');
 const CollectorRunner = require('./lib/CollectorRunner');
 const MySQL = require('./lib/Database/MySQL');
 const AliveHosts = require('./lib/Database/AliveHosts');
@@ -24,8 +24,8 @@ const aliveHosts = new AliveHosts(mysql);
 
 const collector = new CollectorRunner();
 
-collector.add(new Unifi(config.unifi));
-collector.add(new Nmap(config.nmap));
+//collector.add(new Unifi(config.unifi));
+collector.add(new Fping(config.fping));
 
 let lastDeviceCount = false;
 let lastMemberCount = false;

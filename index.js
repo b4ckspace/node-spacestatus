@@ -24,7 +24,7 @@ const aliveHosts = new AliveHosts(mysql);
 
 const collector = new CollectorRunner();
 
-//collector.add(new Unifi(config.unifi));
+collector.add(new Unifi(config.unifi));
 collector.add(new Fping(config.fping));
 
 let lastDeviceCount = false;

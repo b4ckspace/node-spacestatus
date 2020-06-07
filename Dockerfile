@@ -9,4 +9,4 @@ RUN apk add nmap nmap-scripts \
 
 COPY . /app
 
-CMD [ "node", "index.js", "--config /app/config/config.js" ]
+CMD node index.js --config /app/config/config.js

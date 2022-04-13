@@ -9,7 +9,7 @@
   "author": "schinken <schinken@bamberg.ccc.de>",
   "license": "MIT",
   "dependencies": {
-    "async": "^3.2.0",
+    "async": "^3.2.2",
     "configurations": "^2.0.0",
     "ip": "^1.1.5",
     "moment": "^2.29.1",

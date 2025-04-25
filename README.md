@@ -1,5 +1,7 @@
 # node-spacestatus
 
+⚠️: this code was replaced by mac4nick
+
 node.js script used to determine present members using different "collectors".
 The result is then de-duplicated, inserted into the database and queried for present members.
 
